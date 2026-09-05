@@ -29,7 +29,9 @@
     --font-mono:'IBM Plex Mono', monospace;
   }
   *{box-sizing:border-box;}
-  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);-webkit-font-smoothing:antialiased;}
+  button, select, a, .product-photo, .product-photo img{touch-action:manipulation;}
+  html{touch-action:manipulation;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);-webkit-font-smoothing:antialiased;touch-action:manipulation;}
   a{color:inherit;}
 
   header.topbar{
@@ -89,7 +91,7 @@
   main{padding:8px 20px 120px;max-width:720px;margin:0 auto;}
   ul.product-list{list-style:none;margin:0;padding:0;}
   .product-row{
-    display:flex;align-items:center;gap:14px;
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;
     padding:16px 4px;border-bottom:1px solid var(--line);
   }
   .product-photo{
@@ -134,9 +136,9 @@
   .lightbox-nav:hover{background:var(--surface-3);}
   .lightbox-nav-left{left:16px;}
   .lightbox-nav-right{right:16px;}
-  .product-info{flex:1;min-width:0;}
+  .product-info{flex:1;min-width:150px;}
   .product-top-row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
-  .product-name{font-family:var(--font-display);font-weight:600;font-size:17px;margin-bottom:4px;color:var(--text);}
+  .product-name{font-family:var(--font-display);font-weight:600;font-size:17px;margin-bottom:4px;color:var(--text);overflow-wrap:break-word;}
   .product-price{font-family:var(--font-mono);font-size:14px;color:var(--text-soft);}
 
   .option-row{margin-top:10px;}
@@ -150,6 +152,7 @@
 
   .stepper{
     display:flex;align-items:center;gap:0;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;flex-shrink:0;
+    margin-left:auto;
   }
   .stepper button{
     width:38px;height:38px;border:none;background:var(--surface-2);color:var(--text);
@@ -213,6 +216,15 @@
   @media (min-width:640px){
     .overlay{align-items:center;}
     .cart-panel{border-radius:18px;max-height:82vh;border:1px solid var(--line);}
+  }
+  @media (max-width:480px){
+    .product-photo{width:88px;height:88px;}
+    .photo-nav{width:22px;height:22px;font-size:13px;}
+    .product-name{font-size:14.5px;}
+    .product-price{font-size:12.5px;}
+    .variant-btn{font-size:11px;padding:5px 11px;}
+    .stepper button{width:32px;height:32px;font-size:17px;}
+    .stepper input{width:30px;font-size:13px;padding:6px 0;}
   }
   @keyframes slideup{from{transform:translateY(30px);opacity:0;}to{transform:translateY(0);opacity:1;}}
   .cart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
