@@ -566,7 +566,7 @@ function initFilters(){
   const select = document.getElementById("categorySelect");
   const allCats = ["Todos", ...categoriesWithStock()];
   select.innerHTML = allCats.map(cat =>
-    `<option value="${cat}" ${cat === activeFilter ? "selected" : ""}>${cat}</option>`
+    `<option value="${cat}" ${cat === activeFilter ? "selected" : ""}>${cat === "Todos" ? "Categoría" : cat}</option>`
   ).join("");
 }
 
